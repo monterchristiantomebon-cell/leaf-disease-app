@@ -1,0 +1,576 @@
+/* ========================================================= */
+/* 1. GLOBAL & BASE STYLES                                   */
+/* ========================================================= */
+
+* {
+    -ms-overflow-style: none !important;  /* IE/Edge */
+    scrollbar-width: none !important;     /* Firefox */
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    background: transparent !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Permanently fixed background layer */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("image/backround.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -999;
+    pointer-events: none;
+}
+
+/* ========================================================= */
+/* 2. NAVBAR STYLING & USER PROFILE                          */
+/* ========================================================= */
+
+.navbar {
+    background: transparent; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.brand {
+    color: #ffffff;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.navbar a,
+.btn-signup {
+    color: #ffffff;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 20px;
+    cursor: pointer;
+    gap: 6px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar a:hover,
+.btn-signup:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 10px;
+    color: #ef4444;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn-logout:hover {
+    color: #dc2626;
+    text-decoration: underline;
+}
+
+/* ========================================================= */
+/* 3. MAIN CARD CONTAINER & HEADER                           */
+/* ========================================================= */
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    padding: 80px 20px 40px;
+}
+
+.card {
+    background: rgba(18, 28, 22, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 28px 24px;
+    max-width: 500px; /* Constrains card width to fit reference image */
+    width: 100%;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    margin: 0 auto;
+}
+
+.header-title h1 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+
+.header-title p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+/* ========================================================= */
+/* 4. DROP ZONE & IMAGE PREVIEW                              */
+/* ========================================================= */
+
+.drop-zone {
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1.5px dashed rgba(74, 222, 128, 0.4);
+    border-radius: 8px;
+    min-height: 220px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 16px;
+    padding: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.drop-zone:hover {
+    border-color: rgba(74, 222, 128, 0.8);
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+#dropZoneContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.drop-zone-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.drop-zone-text {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.drop-zone-subtext {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* Compact image preview box matching reference design */
+#imagePreview {
+    display: none;
+    max-width: 180px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Camera trigger buttons */
+.camera-trigger-wrapper {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+#openCameraBtn,
+#cameraBtn,
+.take-photo-btn {
+    display: inline-block;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#openCameraBtn:hover,
+#cameraBtn:hover,
+.take-photo-btn:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.spinner {
+    display: none;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #22c55e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10;
+}
+
+@keyframes spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+}
+
+/* ========================================================= */
+/* 5. BUTTON GROUP (ANALYZE / CLEAR / CAPTURE)               */
+/* ========================================================= */
+
+.button-group { 
+    display: flex; 
+    gap: 12px; 
+    margin-bottom: 16px; 
+}
+
+.btn {
+    flex: 1; 
+    padding: 10px 16px; 
+    border: none; 
+    border-radius: 6px;
+    font-weight: 600; 
+    font-size: 14px; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary { 
+    background-color: #22c55e; 
+    color: #ffffff; 
+}
+
+.btn-primary:hover { 
+    background-color: #16a34a; 
+}
+
+.btn-primary:disabled { 
+    background-color: #374151; 
+    color: #9ca3af;
+    cursor: not-allowed; 
+}
+
+.btn-secondary { 
+    background-color: #e2e8f0; 
+    color: #1e293b; 
+    display: inline-block; 
+}
+
+.btn-secondary:hover { 
+    background-color: #cbd5e1; 
+}
+
+.btn-capture {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.btn-capture:hover {
+    background-color: #1b5e20;
+}
+
+.btn-cancel {
+    background-color: #757575;
+    color: #ffffff;
+}
+
+.btn-cancel:hover {
+    background-color: #616161;
+}
+
+/* ========================================================= */
+/* 6. DYNAMIC RESULTS PANEL WITH SMOOTH TRANSITION          */
+/* ========================================================= */
+
+.results-panel-wrapper {
+    min-height: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-8px);
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.4s ease, 
+                transform 0.4s ease, 
+                margin-top 0.4s ease;
+}
+
+.card.has-results .results-panel-wrapper,
+.results-panel-wrapper.active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 10px;
+}
+
+.results-panel {
+    background-color: rgba(10, 15, 12, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+.results-header,
+#resultStatus {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.detection-card { 
+    background-color: transparent; 
+    padding: 0; 
+    margin-bottom: 0; 
+}
+
+.detection-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 8px; 
+}
+
+.detection-title { 
+    font-weight: 700; 
+    color: #4ade80; 
+    font-size: 15px; 
+}
+
+.detection-confidence { 
+    background-color: rgba(34, 197, 94, 0.15); 
+    color: #4ade80; 
+    padding: 4px 10px; 
+    border-radius: 12px; 
+    font-size: 12px; 
+    font-weight: 600; 
+}
+
+.detection-body { 
+    font-size: 13px; 
+    color: #cbd5e1; 
+    line-height: 1.5; 
+}
+
+.detection-body p {
+    margin: 6px 0;
+}
+
+.detection-body strong {
+    color: #ffffff;
+}
+
+#fileInput { 
+    display: none; 
+}
+
+/* ========================================================= */
+/* 7. MODAL STYLES (AUTH & CAMERA)                          */
+/* ========================================================= */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-card {
+    position: relative;
+    background: rgba(20, 25, 22, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.modal-card h2 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.modal-card p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+/* Auth Modal Specifics */
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-google {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.btn-google:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-facebook {
+    background-color: #1877f2;
+    color: #ffffff;
+}
+
+.btn-facebook:hover {
+    background-color: #166fe5;
+}
+
+/* Camera Modal Specifics */
+.camera-modal {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.camera-modal video {
+    width: 100%;
+    border-radius: 8px;
+    background: #000;
+}
+
+.camera-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

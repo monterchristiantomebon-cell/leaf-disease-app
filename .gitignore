@@ -1,0 +1,7 @@
+tf_env/
+models/*.keras
+uploadimages/
+__pycache__/
+*.pem
+*.key
+.env

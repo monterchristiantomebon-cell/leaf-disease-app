@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images in {{ folder_name }}</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='image/icon-512.png') }}">
+        
+
+    <style>
+        /* ========================================================= */
+        /* 1. RESET & BASE LAYOUT                                    */
+        /* ========================================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Fixed blurred background (optional backdrop) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("{{ url_for('static', filename='img/background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ========================================================= */
+        /* 2. NAVIGATION BAR                                         */
+        /* ========================================================= */
+        .navbar {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-link {
+            color: #ffffff;
+            font-family: "Georgia", serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 5px 18px;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .brand-link:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-right .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #4ade80;
+        }
+
+        /* ========================================================= */
+        /* 3. MAIN CONTAINER & HEADER                               */
+        /* ========================================================= */
+        .main-container.gallery-page {
+            padding: 85px 24px 40px;
+        }
+
+        .gallery-wrapper {
+            width: 100%;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .header-title h1 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Navigation Action Buttons */
+    .back-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    
+    /* Dark green tinted background and matching subtle border */
+        background-color: #122119;
+        border: 1px solid #1f3a2c;
+        border-radius: 12px;
+    
+    /* Dimensions and spacing */
+        padding: 8px 18px;
+    
+    /* Mint/Cyan glowing text */
+        color: #79f2d0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+    
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.back-btn:hover {
+    background-color: #192e23;
+    border-color: #2e543f;
+    color: #a0f9e1;
+    transform: translateY(-1px);
+}
+
+/* Active click effect */
+.back-btn:active {
+    transform: translateY(0);
+}
+
+        /* ========================================================= */
+        /* 4. EXACT 5-COLUMN GRID LAYOUT & CARDS                    */
+        /* ========================================================= */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 Columns to match screenshot */
+            gap: 16px;
+            width: 100%;
+        }
+
+        .item-card.image-card {
+            background-color: #1a1a1a; /* Dark card background */
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .item-card.image-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.35);
+            background-color: #242424;
+        }
+
+        .media-container {
+            width: 100%;
+            aspect-ratio: 4 / 3; /* Fixed aspect ratio for uniform image height */
+            overflow: hidden;
+            border-radius: 6px;
+            background-color: #000000;
+        }
+
+        .media-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fits image without stretching */
+            display: block;
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+
+        .no-images-text {
+            color: #94a3b8;
+            text-align: center;
+            grid-column: 1 / -1;
+            font-size: 14px;
+            padding: 50px 0;
+        }
+
+        /* ========================================================= */
+        /* 5. RESPONSIVE FALLBACKS                                   */
+        /* ========================================================= */
+        @media (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="brand-link" href="{{ url_for('home') }}">Home</a>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li style="display: none;"><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container gallery-page">
+        <div class="gallery-wrapper">
+
+            <div class="header-title">
+                <a href="javascript:history.back()" class="back-btn">← Back</a>
+                <h1>Images in {{ folder_name }}</h1>
+            </div>
+
+            <div class="card-grid">
+                {% for img in images %}
+                    <div class="item-card image-card" onclick="selectImageForAnalysis('{{ img.url }}')">
+                        <div class="media-container">
+                            <img src="{{ img.url }}" alt="{{ img.name }}" loading="lazy">
+                        </div>
+                        <div class="card-title">{{ img.name }}</div>
+                    </div>
+                {% else %}
+                    <p class="no-images-text">
+                        No images found in this folder.
+                    </p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function selectImageForAnalysis(imageUrl) {
+            const homeUrl = "{{ url_for('home') }}";
+            window.location.href = `${homeUrl}?analyze_image=${encodeURIComponent(imageUrl)}`;
+        }
+    </script>
+
+</body>
+</html>

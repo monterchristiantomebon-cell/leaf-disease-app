@@ -1,0 +1,236 @@
+[
+  {
+    "id": 0,
+    "name": "Apple___Apple_scab",
+    "description": "Fungus Venturia inaequalis. Favorable conditions are cool, wet weather.",
+    "treatment": "Use fungicides and resistant apple varieties. Prune and destroy infected leaves."
+  },
+  {
+    "id": 1,
+    "name": "Apple___Black_rot",
+    "description": "Caused by the fungus Botryosphaeria obtusa.",
+    "treatment": "Prune and remove infected areas. Apply fungicides during the growing season."
+  },
+  {
+    "id": 2,
+    "name": "Apple___Cedar_apple_rust",
+    "description": "Fungus Gymnosporangium juniperi-virginianae. Requires junipers as an alternate host.",
+    "treatment": "Remove nearby juniper hosts. Use resistant varieties and fungicides."
+  },
+  {
+    "id": 3,
+    "name": "Apple___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 4,
+    "name": "Background_without_leaves",
+    "description": "No disease or plant detected.",
+    "treatment": "Not applicable."
+  },
+  {
+    "id": 5,
+    "name": "Blueberry___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 6,
+    "name": "Cherry___Powdery_mildew",
+    "description": "Fungus Podosphaera clandestina.",
+    "treatment": "Apply sulfur-based or fungicide treatments. Ensure good air circulation."
+  },
+  {
+    "id": 7,
+    "name": "Cherry___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 8,
+    "name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "description": "Fungus Cercospora zeae-maydis.",
+    "treatment": "Use resistant hybrids and fungicide sprays."
+  },
+  {
+    "id": 9,
+    "name": "Corn_(maize)___Common_rust",
+    "description": "Fungus Puccinia sorghi.",
+    "treatment": "Apply fungicides and plant resistant varieties."
+  },
+  {
+    "id": 10,
+    "name": "Corn_(maize)___Northern_Leaf_Blight",
+    "description": "Fungus Exserohilum turcicum.",
+    "treatment": "Use resistant varieties and fungicides."
+  },
+  {
+    "id": 11,
+    "name": "Corn_(maize)___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 12,
+    "name": "Grape___Black_rot",
+    "description": "Fungus Guignardia bidwellii.",
+    "treatment": "Prune infected areas and apply fungicides."
+  },
+  {
+    "id": 13,
+    "name": "Grape___Esca_(Black_Measles)",
+    "description": "Fungal complex including Phaeomoniella chlamydospora.",
+    "treatment": "Remove infected wood. Avoid injuries to vines."
+  },
+  {
+    "id": 14,
+    "name": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "description": "Fungus Pseudocercospora vitis.",
+    "treatment": "Apply fungicides and manage vineyard hygiene."
+  },
+  {
+    "id": 15,
+    "name": "Grape___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 16,
+    "name": "Orange___Haunglongbing_(Citrus_greening)",
+    "description": "Bacterium Candidatus Liberibacter spp. Spread by psyllid insects.",
+    "treatment": "Control psyllid population and remove infected trees."
+  },
+  {
+    "id": 17,
+    "name": "Peach___Bacterial_spot",
+    "description": "Bacterium Xanthomonas campestris pv. pruni.",
+    "treatment": "Use resistant varieties and copper-based bactericides."
+  },
+  {
+    "id": 18,
+    "name": "Peach___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 19,
+    "name": "Pepper,_bell___Bacterial_spot",
+    "description": "Bacterium Xanthomonas campestris pv. vesicatoria.",
+    "treatment": "Use copper-based bactericides and resistant varieties."
+  },
+  {
+    "id": 20,
+    "name": "Pepper,_bell___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 21,
+    "name": "Potato___Early_blight",
+    "description": "Fungus Alternaria solani.",
+    "treatment": "Apply fungicides and practice crop rotation."
+  },
+  {
+    "id": 22,
+    "name": "Potato___Late_blight",
+    "description": "Pathogen Phytophthora infestans.",
+    "treatment": "Use resistant varieties and fungicides."
+  },
+  {
+    "id": 23,
+    "name": "Potato___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 24,
+    "name": "Raspberry___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 25,
+    "name": "Soybean___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 26,
+    "name": "Squash___Powdery_mildew",
+    "description": "Fungal pathogens including Erysiphe cichoracearum.",
+    "treatment": "Apply sulfur-based fungicides and maintain good air circulation."
+  },
+  {
+    "id": 27,
+    "name": "Strawberry___Leaf_scorch",
+    "description": "Fungus Diplocarpon earlianum.",
+    "treatment": "Remove infected leaves and apply fungicides."
+  },
+  {
+    "id": 28,
+    "name": "Strawberry___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  },
+  {
+    "id": 29,
+    "name": "Tomato___Bacterial_spot",
+    "description": "Bacterium Xanthomonas spp.",
+    "treatment": "Apply copper-based bactericides and practice crop rotation."
+  },
+  {
+    "id": 30,
+    "name": "Tomato___Early_blight",
+    "description": "Fungus Alternaria solani.",
+    "treatment": "Apply fungicides and remove infected leaves."
+  },
+  {
+    "id": 31,
+    "name": "Tomato___Late_blight",
+    "description": "Pathogen Phytophthora infestans.",
+    "treatment": "Use resistant varieties and fungicides."
+  },
+  {
+    "id": 32,
+    "name": "Tomato___Leaf_Mold",
+    "description": "Fungus Passalora fulva.",
+    "treatment": "Apply fungicides and ensure good ventilation."
+  },
+  {
+    "id": 33,
+    "name": "Tomato___Septoria_leaf_spot",
+    "description": "Fungus Septoria lycopersici.",
+    "treatment": "Remove infected leaves and apply fungicides."
+  },
+  {
+    "id": 34,
+    "name": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "description": "Spider mites Tetranychus urticae.",
+    "treatment": "Use miticides or insecticidal soaps."
+  },
+  {
+    "id": 35,
+    "name": "Tomato___Target_Spot",
+    "description": "Fungus Corynespora cassiicola.",
+    "treatment": "Apply fungicides and ensure good air circulation."
+  },
+  {
+    "id": 36,
+    "name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "description": "Virus spread by whiteflies.",
+    "treatment": "Control whitefly population and use resistant varieties."
+  },
+  {
+    "id": 37,
+    "name": "Tomato___Tomato_mosaic_virus",
+    "description": "Virus transmitted through contact and contaminated tools.",
+    "treatment": "Remove infected plants and sterilize tools."
+  },
+  {
+    "id": 38,
+    "name": "Tomato___healthy",
+    "description": "No disease present.",
+    "treatment": "Maintain good cultural practices for optimal health."
+  }
+]
