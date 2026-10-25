@@ -1,9 +1,9 @@
-﻿Flask==3.0.3
-Flask-SQLAlchemy==3.1.1
-gunicorn==22.0.0
-numpy==1.26.4
+﻿Flask>=3.0.0
+Flask-SQLAlchemy>=3.1.0
+gunicorn>=22.0.0
+numpy>=1.26.0
 Pillow>=10.0.0
-PyMySQL==1.1.1
-requests==2.32.3
-aiolite==0.1.1
-opencv-python-headless==4.9.0.80
+PyMySQL>=1.1.0
+requests>=2.32.0
+tflite-runtime>=2.14.0
+opencv-python-headless>=4.9.0
